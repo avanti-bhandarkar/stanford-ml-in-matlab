@@ -1,0 +1,14 @@
+function [theta, J_history] = gradientDescentMulti(X, y, theta, alpha, iters)
+
+m = length(y);
+J_history = zeros(iters, 1);
+
+for iter = 1:iters
+
+    derivate = (X'*(X*theta - y))/m; %vectorized implementation
+    theta = theta - alpha*derivate;
+    
+    cost = computeCost(X, y, theta); %saving J for every iteration
+    J_history(iter) = cost;
+
+end

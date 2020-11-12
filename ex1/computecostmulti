@@ -1,0 +1,5 @@
+function J = computecostmulti(X, y, theta)
+m = length(y);
+J = 0;
+%cost function for multiple variables
+J = (1/(2*m))*(X*theta - y).*(X*theta - y);

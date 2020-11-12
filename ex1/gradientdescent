@@ -1,0 +1,26 @@
+function [theta, J_history] = gradientdescent(X, y, theta, alpha, iters)
+m = length(y); 
+J_hist = zeros(num_iters, 1);
+
+for iter = 1:iters %iteration implementation
+  numthetas = length(theta);
+  newtheta = zeros(numthetas,1);
+  for j = 1:numthetas
+    sumofpreddev = 0;
+    for i = 1:m
+      h(x)=X*theta
+      hx = X(i,:) * theta;
+      preddev = (hx - y(i,:))*X(i,j);
+      sumofpreddev = sumofpreddev + preddev;
+    end
+    newtheta(j) = theta(j) - (alpha/m)*sumofpreddev;
+   end
+  theta = newtheta;
+  
+  derivate = (X'*(X*theta - y))/m; %vectorized implementation
+  theta = theta - alpha*derivate;
+  
+  cost = computeCost(X, y, theta); %saving J for each iteration
+  J_hist(iter) = cost;
+  
+end

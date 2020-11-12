@@ -1,0 +1,4 @@
+function A = warmup()
+A = [];
+A = eye(5);
+

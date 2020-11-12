@@ -1,0 +1,13 @@
+function [X_norm, mu, sigma] = featurenormalize(X)
+X_norm = X;
+mu = zeros(1, size(X, 2));
+sigma = zeros(1, size(X, 2));
+functions useful.
+
+%mean and sigma
+mu = mean(X);
+sigma = std(X);
+
+%normalised values
+X_norm = (X - mu) ./ std(X);
+
